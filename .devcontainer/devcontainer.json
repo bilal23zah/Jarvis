@@ -1,1 +1,29 @@
 
+{
+    "name": "Android Development",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "17",
+            "installMaven": "false",
+            "installGradle": "true"
+        },
+        "ghcr.io/devcontainers-contrib/features/android-sdk-cli:2": {
+            "version": "10406996",
+            "platforms": "android-34",
+            "buildToolsVersion": "34.0.0"
+        }
+    },
+
+    "postCreateCommand": "yes | sdkmanager --licenses && sudo chown -R $(whoami) /opt/android-sdk-linux",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "fwcd.kotlin"
+            ]
+        }
+    }
+}
